@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <img src="https://cdn.aframe.io/a-painter/images/floor.jpg" alt="texture" id="texture">
+        </a-assets>
+
+        <!-- Box that rotates on mouseenter -->
+        <a-box position="-2 1 -5" color="#4CC3D9" rotation="0 45 0">
+            <a-animation attribute="rotation"
+                         from="0 45 0"
+                         to="0 405 0"
+                         dur="2000"
+                         easing="linear"
+                         begin="mouseenter"
+                         repeat="indefinite">
+            </a-animation>
+        </a-box>
+
+        <!-- Sphere that changes color and scales on mouseenter -->
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E">
+            <a-animation attribute="scale" 
+                         to="2 2 2" 
+                         dur="500"
+                         begin="mouseenter">
+            </a-animation>
+            <a-animation attribute="scale" 
+                         to="1 1 1" 
+                         dur="500"
+                         begin="mouseleave">
+            </a-animation>
+            <a-animation attribute="color" 
+                         to="#4CAF50" 
+                         dur="500"
+                         begin="mouseenter">
+            </a-animation>
+            <a-animation attribute="color" 
+                         to="#EF2D5E" 
+                         dur="500"
+                         begin="mouseleave">
+            </a-animation>
+        </a-sphere>
+
+        <!-- Cylinder that moves position on mouseenter -->
+        <a-cylinder position="2 1 -5" radius="0.5" height="1.5" color="#FFC65D">
+            <a-animation attribute="position"
+                         to="2 3 -5"
+                         dur="1000"
+                         begin="mouseenter">
+            </a-animation>
+            <a-animation attribute="position"
+                         to="2 1 -5"
+                         dur="1000"
+                         begin="mouseleave">
+            </a-animation>
+        </a-cylinder>
+
+        <!-- Camera with cursor -->
+        <a-camera position="0 0 5">
+            <a-cursor color="#FF0000"></a-cursor>
+        </a-camera>
+    </a-scene>
+</body>
+
+</html>
